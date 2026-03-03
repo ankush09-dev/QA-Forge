@@ -1,4 +1,9 @@
 name: CI — Build & Test
+name: Build production bundle
+run: npm run build
+env:
+CI: false
+REACT_APP_ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
 on:
   push:
@@ -39,3 +44,4 @@ jobs:
           name: build
           path: build/
           retention-days: 7
+          
